@@ -1,0 +1,21 @@
+.custom-thin-scrollbar-table .ant-table-content {
+  overflow-x: auto !important;
+}
+.custom-thin-scrollbar-table .ant-table-content::-webkit-scrollbar {
+  height: 5px !important;
+  width: 5px;
+}
+.custom-thin-scrollbar-table .ant-table-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.custom-thin-scrollbar-table .ant-table-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+.custom-thin-scrollbar-table .ant-table-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.custom-thin-scrollbar-table .ant-table-content {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}

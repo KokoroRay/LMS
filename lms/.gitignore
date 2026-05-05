@@ -1,0 +1,57 @@
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Docker ###
+logs/
+backups/
+
+### Environment ###
+.env
+.env.local
+.env.production
+.env.*.local
+!.env.example
+
+### Database dumps ###
+*.sql
+!src/main/resources/schema.sql
+!src/main/resources/data.sql
+
+### Documentation ###
+DOCKER-AZURE-SETUP.md
+README-Docker.md

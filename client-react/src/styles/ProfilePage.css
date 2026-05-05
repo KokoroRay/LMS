@@ -1,0 +1,220 @@
+/* ProfilePage.css
+   - Responsive layout for desktop and mobile (<=768px)
+   - Uses Inter font; if your app already imports Inter, you can remove the @import below.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+  --text-primary: #111827;
+  --muted: #6b7280;
+  --input-bg: #f5f5f5;
+  --card-radius: 12px;
+  --accent-bg: #FFE9E2; /* nút đổi mật khẩu background */
+  --accent-color: #E86B47; /* chữ nút */
+}
+
+/* Layout container */
+.profile-layout {
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.profile-content{
+  padding: 56px 88px;
+}
+
+/* Row wrapper */
+.profile-row {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Left column (title + avatar) */
+.left-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Page title (left, large) */
+.page-title {
+  margin: 0 0 20px 0 !important;
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  color: var(--text-primary);
+}
+
+/* avatar section */
+.avatar-section {
+  width: 100%;
+}
+
+.avatar-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: var(--text-primary);
+}
+
+/* wrapper to position camera icon */
+.avatar-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  overflow: visible;
+}
+
+/* avatar image */
+.avatar-img {
+  border-radius: 50% !important;
+  object-fit: cover;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* camera round button */
+.camera-circle {
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: transform .15s ease, background .15s ease;
+  cursor: pointer;
+}
+
+.camera-circle:hover {
+  transform: translateY(-2px);
+  background: #e9e9e9;
+}
+
+.camera-icon {
+  font-size: 18px;
+  color: #333;
+}
+
+/* help text under avatar */
+.avatar-help {
+  display: block;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Right column */
+.right-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* right-side description (aligned right on desktop) */
+.right-description {
+  margin: 0 0 12px 0 !important;
+  color: var(--muted);
+  text-align: right;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* info title */
+.info-title {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* grid of inputs */
+.info-grid {
+  margin-bottom: 8px;
+}
+
+/* labels */
+.field-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* style readonly inputs */
+.readonly-input {
+  background: var(--input-bg);
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+  height: 44px;
+  margin-bottom: 6px;
+  cursor: not-allowed;
+  color: #111;
+}
+
+/* change password button style */
+.change-password-btn {
+  margin-top: 24px;
+  border-radius: 10px;
+  height: 44px;
+  background: var(--accent-bg) !important;
+  color: var(--accent-color) !important;
+  border: none !important;
+  font-weight: 600;
+  box-shadow: none !important;
+}
+
+/* Hover effect for button */
+.change-password-btn:hover {
+  background: #ffd9cc !important;
+  color: var(--accent-color) !important;
+}
+
+/* Responsiveness: mobile layout <= 768px */
+@media (max-width: 768px) {
+  .profile-content {
+    padding: 28px 20px;
+  }
+
+  .profile-row {
+    margin: 0;
+  }
+
+  .page-title {
+    font-size: 24px !important;
+    text-align: left;
+  }
+
+  .left-col, .right-col {
+    align-items: center;
+  }
+
+  .avatar-label {
+    text-align: left;
+    width: 100%;
+  }
+
+  .avatar-wrapper {
+    margin: 0 auto;
+  }
+
+  .right-description {
+    text-align: center;
+    margin-bottom: 20px !important;
+  }
+
+  .info-grid {
+    width: 100%;
+  }
+
+  .readonly-input {
+    width: 100%;
+  }
+
+  .change-password-btn {
+    width: 100%;
+  }
+}

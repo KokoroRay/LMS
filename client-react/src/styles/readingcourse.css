@@ -1,0 +1,8 @@
+
+.description-content pre[class*="language-"] {
+    /* Đảm bảo nó luôn hiển thị khối code */
+    margin: 1em 0;
+    padding: 0 1em 0 0; /* Giữ padding trái cho số dòng */
+    overflow: auto;
+    border-radius: 4px;
+}

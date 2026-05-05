@@ -1,0 +1,241 @@
+/* =========================================
+   GLOBAL SCROLL / DRAWER FIX
+   ========================================= */
+
+.ant-scrolling-effect {
+  padding-right: 0 !important;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: #7e7e7e;
+  border-radius: 2px;
+}
+/* =========================================
+   ADMIN CONTENT WRAPPER (nếu dùng riêng ngoài .admin-dashboard)
+   ========================================= */
+.admin-content {
+  max-width: 1260px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* =========================================
+   ADMIN DASHBOARD – BASE
+   ========================================= */
+.admin-dashboard {
+  --maxw: 1260px;
+  --card-radius: 16px;
+  --section-gap: 8px;
+
+  /* Lưu ý: --pad-x/--pad-y có thể bị override ở media queries */
+  padding: var(--pad-y) var(--pad-x);
+}
+
+/* Content luôn căn giữa theo max-width động */
+.admin-dashboard > * {
+  max-width: var(--maxw);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Card bo góc + bóng nhẹ */
+.admin-dashboard .ant-card {
+  border-radius: var(--card-radius);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+/* Typography gọn */
+.admin-dashboard .ant-typography,
+.admin-dashboard .ant-card-head-title,
+.admin-dashboard .ant-tabs-tab-btn {
+  line-height: 1.25;
+}
+
+/* Bảng có thể cuộn ngang khi hẹp */
+.admin-dashboard .ant-table {
+  overflow-x: auto;
+}
+.admin-dashboard .ant-table-cell {
+  padding: 10px 12px;
+}
+
+/* Tabs trơn tru khi tràn ngang */
+.admin-dashboard .ant-tabs-nav {
+  margin: 0 0 12px 0;
+}
+.admin-dashboard .ant-tabs-nav-list {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+}
+
+/* Số lớn (OVERVIEW) không bị margin đẩy */
+.admin-dashboard .ant-typography h2 {
+  margin: 0 !important;
+}
+
+/* Khoảng cách các phần & items nhỏ */
+.admin-dashboard .ant-divider {
+  margin: 16px 0;
+}
+.admin-dashboard .ant-list-item {
+  padding: 10px 0;
+}
+.admin-dashboard .ant-tag {
+  margin-inline-end: 6px;
+}
+
+/* =========================================
+   XS – MOBILE ( < 576px )
+   ========================================= */
+@media (max-width: 575.98px) {
+  .admin-dashboard {
+    --pad-y: 12px;
+    --card-radius: 14px;
+    /* maxw kế thừa – vẫn giữ theo default, dùng full do parent nhỏ */
+  }
+
+  .admin-dashboard .ant-table {
+    font-size: 13px;
+  }
+  .admin-dashboard .ant-table-thead > tr > th,
+  .admin-dashboard .ant-table-tbody > tr > td {
+    padding: 8px 10px;
+    white-space: nowrap; /* tránh vỡ dòng gây nhảy layout */
+  }
+
+  /* Progress nhỏ lại một chút */
+  .admin-dashboard .ant-progress-inner {
+    transform: scale(0.9);
+    transform-origin: left center;
+  }
+
+  /* Tăng row-gap cho grid */
+  .admin-dashboard .ant-row {
+    row-gap: 12px;
+  }
+
+  /* Tabs gọn */
+  .admin-dashboard .ant-tabs-tab {
+    padding: 6px 8px;
+  }
+}
+
+/* =========================================
+   SM – 576px ~ 767.98px
+   ========================================= */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .admin-dashboard {
+    --card-radius: 16px;
+    --pad-x: 16px;
+  }
+  .admin-dashboard .ant-table {
+    font-size: 13.5px;
+  }
+}
+
+/* =========================================
+   iPAD PORTRAIT – 768px ~ 1023.98px
+   (Full width để không còn mép trống)
+   ========================================= */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .admin-dashboard {
+    --maxw: 100%;
+    --pad-x: 16px;
+    --pad-y: 18px;
+  }
+  .admin-dashboard .ant-table {
+    font-size: 14px;
+  }
+  .admin-dashboard .ant-table-cell {
+    padding: 10px 12px;
+  }
+  .admin-dashboard .ant-tabs-tab {
+    padding: 8px 10px;
+  }
+}
+
+/* =========================================
+   MD – 768px ~ 991.98px (bổ sung nhẹ)
+   ========================================= */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .admin-dashboard {
+    --pad-x: 18px;
+    --pad-y: 18px;
+  }
+  .admin-dashboard .ant-table {
+    font-size: 14px;
+  }
+}
+
+/* =========================================
+   LG – 992px ~ 1199.98px
+   ========================================= */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .admin-dashboard {
+    --pad-y: 20px;
+  }
+}
+
+/* =========================================
+   iPAD LANDSCAPE – 1024px ~ 1366.98px
+   (Full width + giảm gutter để lấp trống)
+   ========================================= */
+@media (min-width: 1024px) and (max-width: 1366.98px) {
+  .admin-dashboard {
+    --maxw: 100%; /* quan trọng: bỏ giới hạn 1260 để fill full */
+    --pad-y: 20px;
+  }
+
+  /* Giảm margin/padding của Row/Col để “sát mép” hơn */
+  .admin-dashboard .ant-row {
+    margin-left: -8px;
+    margin-right: -8px;
+  }
+  .admin-dashboard .ant-col {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .admin-dashboard .ant-table {
+    font-size: 14.5px;
+  }
+  .admin-dashboard .ant-table-cell {
+    padding: 11px 13px;
+  }
+  .admin-dashboard .ant-tabs-nav {
+    margin: 0 0 14px 0;
+  }
+}
+
+/* =========================================
+   XL – 1200px ~ 1599.98px
+   ========================================= */
+@media (min-width: 1200px) and (max-width: 1599.98px) {
+  .admin-dashboard {
+    --pad-x: 20px;
+    --pad-y: 20px;
+    --maxw: 1260px; /* khớp với Content layout desktop chuẩn */
+  }
+}
+
+/* =========================================
+   XXL – ≥ 1600px (mở rộng nhẹ cho màn lớn)
+   ========================================= */
+@media (min-width: 1600px) {
+  .admin-dashboard {
+    --pad-x: 24px;
+    --pad-y: 24px;
+    --maxw: 1380px;
+  }
+  .admin-dashboard .ant-table {
+    font-size: 15px;
+  }
+  .admin-dashboard .ant-table-cell {
+    padding: 12px 14px;
+  }
+}

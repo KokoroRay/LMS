@@ -1,0 +1,185 @@
+/* filename: src/styles/teacher/teachercoursemanagement.css */
+
+/* Desktop: bảng chuẩn, không scrollbar ngang */
+.admin-dashboard.roles-page,
+.admin-dashboard.roles-page .ant-card {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.roles-table {
+    width: 100%;
+}
+
+.roles-table .ant-table-content {
+    overflow-x: hidden;
+}
+
+.roles-table .ant-table table {
+    table-layout: fixed;
+}
+
+.roles-table .ant-table-cell {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.roles-table .ant-image-img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.roles-table .ant-space {
+    flex-wrap: wrap;
+}
+
+.roles-table .ant-table-tbody>tr>td,
+.roles-table .ant-table-thead>tr>th {
+    padding: 10px 12px;
+}
+
+.admin-dashboard.roles-page .ant-card-head,
+.admin-dashboard.roles-page .ant-card-head-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Tablet & Mobile (iPad trở xuống): chuyển thành card-list */
+@media (max-width: 992px) {
+
+    /* Container của table căn giữa */
+    .roles-table .ant-table-content {
+        display: flex;
+        justify-content: center;
+    }
+
+    .roles-table .ant-table-body {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* Ẩn header, mỗi row là một card */
+    .roles-table .ant-table-thead {
+        display: none;
+    }
+
+    .roles-table .ant-table-tbody {
+        display: block;
+        width: 100%;
+    }
+
+    .roles-table .ant-table-tbody>tr {
+        display: block;
+        margin: 0 auto 12px;
+        border: 1px solid #f0f0f0;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #fff;
+        max-width: 100%;
+    }
+
+    .roles-table .ant-table-tbody>tr>td {
+        display: block;
+        border-bottom: 1px solid #f5f5f5;
+        padding: 10px 12px;
+        white-space: normal;
+        word-break: break-word;
+    }
+
+    /* Ẩn STT */
+    .roles-table .ant-table-tbody>tr>td:first-child {
+        display: none;
+    }
+
+    /* Ảnh full width đầu card */
+    .roles-table .ant-table-tbody>tr>td:nth-child(2) {
+        padding: 0;
+        text-align: left;
+    }
+
+    .roles-table .ant-image {
+        width: 100%;
+        display: block;
+    }
+
+    .roles-table .ant-image-img {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        border-radius: 0;
+        object-fit: cover;
+    }
+
+    /* Tên khóa học nổi bật */
+    .roles-table .ant-table-tbody>tr>td:nth-child(3) {
+        font-size: 16px;
+        font-weight: 700;
+        color: #1f1f1f;
+        padding-top: 10px;
+    }
+
+    /* Giảng viên + Cấp độ */
+    .roles-table .ant-table-tbody>tr>td:nth-child(4),
+    .roles-table .ant-table-tbody>tr>td:nth-child(5) {
+        font-size: 14px;
+        color: #595959;
+    }
+
+    /* Giá nổi bật */
+    .roles-table .ant-table-tbody>tr>td:nth-child(6) {
+        font-weight: 700;
+        color: #1677ff;
+    }
+
+    /* Trạng thái */
+    .roles-table .ant-table-tbody>tr>td:nth-child(7) {
+        padding-top: 6px;
+    }
+
+    /* Hành động: cuối card, wrap nút */
+    .roles-table .ant-table-tbody>tr>td:nth-child(8) {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        border-bottom: none;
+        padding-bottom: 12px;
+    }
+
+    .roles-table .ant-btn {
+        font-size: 13px;
+        height: 32px;
+        padding: 0 12px;
+    }
+
+    /* Phân trang gọn */
+    .roles-table .ant-pagination {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+        margin-top: 12px;
+    }
+}
+
+/* Mobile nhỏ hơn: giảm chiều cao ảnh, nút gọn hơn */
+@media (max-width: 576px) {
+    .roles-table .ant-image-img {
+        max-height: 160px;
+    }
+
+    .roles-table .ant-btn {
+        font-size: 12px;
+        height: 28px;
+        padding: 0 10px;
+    }
+}
+
+.upload-overlay:hover {
+    opacity: 1 !important;
+}

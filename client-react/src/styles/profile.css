@@ -1,0 +1,16 @@
+.submit-update-password {
+    background: rgba(221, 103, 60, 1);
+    border-color: rgba(221, 103, 60, 1) !important;
+}
+
+.submit-update-password:hover {
+    background: rgba(201, 83, 40, 1) !important;
+    /* Đậm hơn một chút */
+    border-color: rgba(201, 83, 40, 1) !important;
+}
+
+
+.cancel-update-password:hover {
+    border-color: rgba(221, 103, 60, 1) !important;
+    color: rgba(221, 103, 60, 1) !important;
+}

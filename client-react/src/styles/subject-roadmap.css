@@ -1,0 +1,189 @@
+.subject-roadmap-layout {
+  background: #f5f5f7;
+  min-height: 100vh;
+}
+
+.subject-roadmap-content {
+  max-width: 1200px;
+  margin: 24px auto;
+  padding: 0 16px 48px;
+}
+
+/* HERO SECTION */
+.subject-roadmap-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.subject-roadmap-hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.subject-roadmap-badge {
+  border-radius: 999px;
+  padding-inline: 16px;
+  font-size: 11px;
+}
+
+.subject-roadmap-title {
+  margin-bottom: 4px !important;
+}
+
+.subject-roadmap-subtitle {
+  margin-bottom: 8px !important;
+}
+
+.subject-roadmap-hero-card {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.subject-roadmap-summary-card {
+  width: 100%;
+  max-width: 380px;
+  background: linear-gradient(135deg, #fff7e6, #ffffff);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+/* SUBJECT LIST */
+.subject-list-wrapper {
+  margin-bottom: 32px;
+}
+
+.section-title {
+  margin-bottom: 12px !important;
+}
+
+.subject-card {
+  border-radius: 16px !important;
+  transition: all 0.2s ease;
+}
+
+.subject-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
+}
+
+.subject-card--active {
+  border: 1px solid #f97316 !important;
+  box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.2);
+}
+
+/* DETAIL */
+.subject-roadmap-detail {
+  margin-top: 8px;
+}
+
+.subject-roadmap-detail-card {
+  border-radius: 16px !important;
+}
+
+.subject-roadmap-cert-card,
+.subject-roadmap-tip-card {
+  border-radius: 16px !important;
+}
+
+/* STEPS */
+.subject-roadmap-steps {
+  margin-top: 8px;
+}
+
+.roadmap-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 12px;
+  background: #e5e7eb;
+  color: #111827;
+  font-weight: 600;
+}
+
+.roadmap-dot--finish {
+  background: #f97316;
+  color: #ffffff;
+}
+
+.roadmap-dot--process {
+  background: #111827;
+  color: #ffffff;
+}
+
+.roadmap-step-description {
+  margin-top: 6px;
+}
+
+.roadmap-step-list {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  font-size: 13px;
+}
+
+.roadmap-step-list li {
+  margin-bottom: 2px;
+}
+
+/* SIDE LISTS */
+.roadmap-benefit-list {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  font-size: 13px;
+}
+
+.roadmap-benefit-list li {
+  margin-bottom: 2px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .subject-roadmap-hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .subject-roadmap-hero-card {
+    justify-content: flex-start;
+  }
+}
+.course-item-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    border-radius: 16px !important;
+    overflow: hidden;
+}
+
+.course-item-card .ant-card-cover {
+    flex-shrink: 0;
+}
+
+.course-item-card .ant-card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px !important;
+}
+
+.course-item-card .ant-card-meta-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.course-item-card .ant-card-meta-description {
+    min-height: 60px; /* 3 lines of text */
+}
+
+.course-item-card .ant-card-actions {
+    flex-shrink: 0;
+    padding: 0 16px 16px;
+    border-top: none !important;
+    background: transparent;
+}

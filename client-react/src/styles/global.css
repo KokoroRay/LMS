@@ -1,0 +1,56 @@
+/* Áp dụng font toàn cục */
+*,
+*::before,
+*::after {
+  font-family: "SF Pro Display", "SF Pro Text", "SF Pro", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif !important;
+}
+
+/* Áp dụng font cho html và body */
+html,
+body {
+  font-family: "SF Pro Display", "SF Pro Text", "SF Pro", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif !important;
+}
+/* Arrow slide animation for Learn Now button */
+.learn-now-btn .ant-btn-icon {
+  transition: transform 200ms ease;
+}
+.learn-now-btn:hover .ant-btn-icon {
+  transform: translateX(6px);
+}
+
+/* Global responsive helpers */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 22px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Responsive layout for blog detail related articles */
+@media (max-width: 991px) {
+  .desktop-only {
+    display: none !important;
+  }
+  .mobile-only {
+    display: block !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .desktop-only {
+    display: block !important;
+  }
+  .mobile-only {
+    display: none !important;
+  }
+}

@@ -1,0 +1,249 @@
+.timetable-container {
+  padding: 0;
+}
+.timetable-main-header {
+  margin-bottom: 24px;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.timetable-main-header .ant-typography-title {
+  font-size: 24px !important;
+}
+.stat-item {
+  background-color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+.stat-item .ant-typography {
+  font-size: 14px;
+}
+.stat-item .ant-typography-secondary {
+  color: #6b7280;
+}
+.timetable-card {
+  border-radius: 16px !important;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05),
+    0 4px 6px -4px rgb(0 0 0 / 0.05) !important;
+  border: 1px solid #f3f4f6 !important;
+}
+.timetable-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.date-range-title {
+  margin: 0 !important;
+  font-weight: 500 !important;
+  font-size: 18px !important;
+}
+.timetable-grid-wrapper {
+  overflow: hidden;
+}
+.timetable-grid {
+  display: grid;
+  grid-template-columns: 80px repeat(7, 1fr);
+}
+.time-column {
+  display: flex;
+  flex-direction: column;
+  padding-right: 16px;
+}
+.day-column {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #f3f4f6;
+}
+.time-column-placeholder {
+  height: 64px;
+}
+.day-header {
+  height: 64px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 14px;
+}
+.time-slot {
+  height: 60px;
+  text-align: right;
+  font-size: 12px;
+  color: #6b7280;
+  border-top: 1px solid #f3f4f6;
+  padding-top: 4px;
+}
+.day-column.today .day-content {
+  background-color: #f0f9ff;
+}
+.day-content {
+  position: relative;
+  flex: 1;
+}
+.day-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 59px,
+    #f3f4f6 59px,
+    #f3f4f6 60px
+  );
+  z-index: 0;
+}
+.day-column.today .day-header {
+  background-color: #f0f9ff;
+}
+.event {
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  height: 1px;
+  background-color: #74ad31;
+  border-radius: 3px;
+  z-index: 1;
+  border: none;
+}
+.day-abbr {
+  display: none;
+}
+.view-switcher-mobile {
+  display: none !important;
+}
+.time-slots-12h {
+  display: none;
+}
+.timetable-controls .view-switcher-desktop .ant-btn-default {
+  background: #fff6f7;
+  border-color: #ab1f24;
+  color: #ab1f24;
+}
+.timetable-controls
+  .view-switcher-desktop
+  .ant-btn-default:not(:disabled):hover {
+  background: #fde9ea;
+  border-color: #8c1a1f;
+  color: #8c1a1f;
+}
+.timetable-controls .view-switcher-desktop .ant-btn-primary {
+  background: #ab1f24;
+  border-color: #ab1f24;
+  color: #ffffff;
+}
+@media (max-width: 992px) {
+  .timetable-main-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 16px;
+  }
+  .timetable-main-header .ant-typography-title {
+    font-size: 22px !important;
+  }
+  .date-range-title {
+    font-size: 17px !important;
+  }
+  .timetable-controls .view-switcher-desktop {
+    display: none;
+  }
+  .timetable-controls .view-switcher-mobile {
+    display: block !important;
+  }
+}
+@media (max-width: 768px) {
+  .timetable-main-header {
+    padding: 0;
+  }
+  .timetable-main-header .ant-typography-title {
+    font-size: 20px !important;
+  }
+  .header-stats-wrapper,
+  .header-stats-space,
+  .stat-item {
+    width: 100%;
+  }
+  .header-stats-space {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+  .stat-item {
+    justify-content: flex-start;
+    border-radius: 8px;
+  }
+  .stat-item .ant-typography {
+    font-size: 13px;
+  }
+  .timetable-card {
+    padding: 12px !important;
+  }
+  .date-range-title {
+    font-size: 16px !important;
+  }
+  .time-slots-24h {
+    display: none;
+  }
+  .time-slots-12h {
+    display: block;
+  }
+  .time-column-placeholder,
+  .day-header,
+  .time-slot {
+    height: 50px;
+  }
+  .day-header {
+    flex-direction: column;
+    gap: 2px;
+    font-size: 12px;
+    padding: 0 2px;
+  }
+  .day-header .ant-typography:last-of-type {
+    font-weight: 500;
+  }
+  .time-slot {
+    font-size: 11px;
+    padding-top: 2px;
+  }
+  .timetable-grid {
+    grid-template-columns: 60px repeat(7, 1fr);
+  }
+  .time-column {
+    padding-right: 10px;
+  }
+}
+@media (max-width: 420px) {
+  .timetable-main-header .ant-typography-title {
+    font-size: 18px !important;
+  }
+  .date-range-title {
+    font-size: 15px !important;
+  }
+  .time-slot {
+    font-size: 10px;
+  }
+  .day-header {
+    font-size: 11px;
+  }
+  .day-header .ant-typography:last-of-type {
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .timetable-grid {
+    grid-template-columns: 50px repeat(7, 1fr);
+  }
+  .time-column {
+    padding-right: 6px;
+  }
+}

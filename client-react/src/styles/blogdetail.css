@@ -1,0 +1,129 @@
+/* BlogDetail Component Styles */
+
+/* Main container */
+.blog-detail-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 30px 24px;
+}
+
+/* Breadcrumb */
+.blog-detail-breadcrumb {
+    margin-bottom: 30px;
+}
+
+/* Main content wrapper */
+.blog-detail-main-content {
+    margin-bottom: 30px;
+}
+
+/* Blog title */
+.blog-detail-title {
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+/* Meta info section */
+.blog-detail-meta {
+    margin-bottom: 30px;
+}
+
+/* Tag styling */
+.blog-detail-tag {
+    font-size: 14px;
+    padding: 4px 12px;
+    text-transform: capitalize;
+
+}
+
+/* Meta icons */
+.blog-detail-meta-icon {
+    color: #666;
+}
+
+/* Content sections */
+.blog-detail-content-section {
+    margin-bottom: 30px;
+}
+
+.blog-detail-section-title {
+    margin-bottom: 16px;
+}
+
+.blog-detail-paragraph {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+/* Points list */
+.blog-detail-points-list {
+    padding-left: 20px;
+    margin-bottom: 16px;
+}
+
+.blog-detail-point-item {
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Image container */
+.blog-detail-image-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.blog-detail-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar */
+.blog-detail-sidebar {
+    position: sticky;
+    top: 70px;
+}
+
+.blog-detail-sidebar-title {
+    margin-bottom: 20px;
+}
+
+/* Related blogs layout */
+.blog-detail-related-layout {
+    display: block;
+}
+
+.blog-detail-mobile-only {
+    display: none;
+}
+
+.blog-detail-desktop-only {
+    display: block;
+}
+
+.blog-detail-related-space {
+    width: 100%;
+}
+
+.blog-detail-related-item {
+    width: 80%;
+}
+
+/* Loading card */
+.blog-detail-loading-card {
+    min-width: 300px;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+    .blog-detail-mobile-only {
+        display: block;
+    }
+
+    .blog-detail-desktop-only {
+        display: none;
+    }
+}

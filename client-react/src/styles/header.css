@@ -1,0 +1,456 @@
+.ant-menu-horizontal > .ant-menu-item:hover::after {
+  border-bottom: 2px solid #dd673c !important;
+  /* gạch dưới màu cam */
+}
+
+.ant-menu-horizontal > .ant-menu-item:hover {
+  color: #dd673c !important;
+  /* chữ màu cam khi hover */
+}
+
+.ant-menu-horizontal > .ant-menu-item-selected::after {
+  border-bottom: 2px solid #dd673c !important;
+  /* gạch dưới item được chọn */
+}
+
+.ant-menu-horizontal > .ant-menu-item-selected {
+  color: #dd673c !important;
+  /* chữ item được chọn */
+}
+
+/* Tighter underline distance */
+.ant-menu-horizontal > .ant-menu-item {
+  padding-bottom: 4px;
+  /* kéo gạch gần chữ */
+}
+
+.ant-menu-horizontal > .ant-menu-item::after {
+  bottom: -9px !important;
+  /* nhích đường gạch lên */
+}
+
+/* Remove white background on menu items */
+.ant-menu-horizontal,
+.ant-menu-horizontal > .ant-menu-item,
+.ant-menu-horizontal > .ant-menu-submenu {
+  background: transparent !important;
+}
+
+.ant-menu-horizontal > .ant-menu-item-selected,
+.ant-menu-horizontal > .ant-menu-item-active,
+.ant-menu-horizontal > .ant-menu-item:hover {
+  background-color: transparent !important;
+}
+
+/* Layout for header */
+.app-header {
+  background: #fafafa;
+  padding-inline: 24px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.header-container {
+  /* max-width: 1200px; */
+  margin: 0 auto;
+}
+
+.app-header .header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 48px;
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 90px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header-logo {
+  height: 48px;
+}
+
+.header-divider {
+  height: 40px;
+  margin: 0;
+}
+
+.header-menu {
+  border-bottom: none;
+}
+
+.header-icon {
+  font-size: 22px;
+  color: #262626;
+  cursor: pointer;
+}
+
+/* Bottom orange bar (hidden) */
+.app-header .header-bottom-bar {
+  height: 0;
+  background: transparent;
+  opacity: 0;
+}
+
+/* Make room under fixed header */
+.header-spacer {
+  height: 57px;
+  /* sync with header */
+}
+
+/* Header actions spacing */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Dropdown glassy and animation */
+.profile-dropdown-wrapper {
+  background: #ffffff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-radius: 12px;
+  border: 1px solid #d9d9d9;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transform-origin: top right;
+  transform: scale(0.98);
+  opacity: 0;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.profile-dropdown-wrapper.open {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.profile-dropdown-wrapper.closing {
+  opacity: 0;
+  transform: scale(0.98);
+}
+
+/* Dropdown rows */
+.dropdown-row {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  padding: 8px 0;
+}
+
+.dropdown-row-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #595959;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.dropdown-row-item:hover {
+  color: #dd673c;
+  background-color: #f5f5f5;
+}
+
+.header-avatar-clickable {
+  cursor: pointer;
+}
+
+/* ======================== */
+/* Hero/Carousel Responsive */
+/* ======================== */
+.hero-carousel-home {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+}
+
+.hero-slide {
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* =============== */
+/* Mobile (<=768)  */
+/* =============== */
+@media (max-width: 768px) {
+  .app-header .header-inner {
+    padding-left: 16px;
+    padding-right: 8px;
+    min-height: 64px;
+  }
+
+  .header-logo {
+    height: 40px;
+  }
+
+  .header-divider {
+    display: none;
+  }
+
+  .header-menu {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 8px !important;
+  }
+
+  .hamburger-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0;
+  }
+
+  .header-icon,
+  .header-avatar-clickable {
+    display: none;
+  }
+
+  .header-spacer {
+    height: 64px;
+  }
+
+  .hero-carousel-home {
+    height: 420px;
+  }
+
+  .hero-slide {
+    height: 420px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header .header-inner {
+    min-height: 56px;
+    padding-right: 6px;
+  }
+
+  .header-logo {
+    height: 36px;
+  }
+
+  .header-spacer {
+    height: 56px;
+  }
+
+  .hero-carousel-home,
+  .hero-slide {
+    height: 360px;
+  }
+}
+
+@media (max-width: 768px) {
+  .course-card-cover {
+    height: 180px !important;
+  }
+
+  .course-card-title {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .course-card-cover {
+    height: 160px !important;
+  }
+
+  .course-card-title {
+    font-size: 18px !important;
+  }
+}
+
+/* Hamburger (mobile only) */
+.hamburger-btn {
+  display: none;
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  color: #595959;
+  padding: 6px;
+  border-radius: 8px;
+}
+
+.hamburger-btn:active {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* Mobile Drawer (glassy) */
+.mobile-drawer .ant-drawer-mask {
+  backdrop-filter: blur(6px) saturate(140%);
+  -webkit-backdrop-filter: blur(6px) saturate(140%);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.mobile-drawer .ant-drawer-content {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border-left: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.mobile-drawer-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.mobile-drawer-header {
+  padding: 16px;
+  border-bottom: 1px solid rgba(5, 5, 5, 0.06);
+}
+
+.drawer-logo {
+  height: 40px;
+}
+
+.mobile-drawer-content {
+  padding: 8px 8px 16px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.drawer-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 17px;
+  padding: 12px 12px;
+  border-radius: 10px;
+  color: #262626;
+}
+
+.drawer-item:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.drawer-link {
+  font-size: 17px;
+  padding: 12px;
+  color: #262626;
+}
+
+.mobile-drawer-footer {
+  margin-top: auto;
+  padding: 12px;
+  border-top: 1px solid rgba(5, 5, 5, 0.06);
+}
+
+.drawer-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.drawer-profile-text .name {
+  font-weight: 700;
+}
+
+.drawer-profile-text .email {
+  color: #8c8c8c;
+  font-size: 13px;
+}
+
+.logout-btn {
+  margin-left: auto;
+  border: none;
+  background: transparent;
+  color: #ff6a3d;
+  font-size: 18px;
+}
+
+/* Show hamburger and hide desktop menu on mobile */
+@media (max-width: 768px) {
+  .hamburger-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-divider {
+    display: none;
+  }
+
+  .header-menu {
+    display: none;
+  }
+}
+
+/* Search field animation in header */
+.header-search {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.search-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 22px;
+  /* match header-icon size */
+  color: #262626;
+  /* match header-icon color */
+}
+
+.search-icon-btn:active {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.search-field-wrap {
+  position: absolute;
+  right: 40px;
+  /* expand to the left of icon */
+  width: 0;
+  opacity: 0;
+  transform: translateX(8px);
+  pointer-events: none;
+  transition: width 220ms ease, opacity 180ms ease, transform 220ms ease;
+}
+
+.header-search.open .search-field-wrap {
+  width: 360px;
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.header-search .ant-input-affix-wrapper,
+.header-search input.ant-input {
+  border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+  .header-search.open .search-field-wrap {
+    width: 56vw;
+  }
+}

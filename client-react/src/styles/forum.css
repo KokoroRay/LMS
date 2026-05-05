@@ -1,0 +1,57 @@
+.ql-editor {
+  box-sizing: border-box;
+  line-height: 1.7;
+  font-size: 16px;
+  padding: 0 !important;
+}
+.ql-editor h1 {
+  font-size: 1.8em;
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.6em;
+  font-weight: 600;
+}
+.ql-editor h2 {
+  font-size: 1.75em;
+  line-height: 1.3;
+  margin-top: 1.3em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+.ql-editor h3 {
+  font-size: 1.5em;
+  line-height: 1.4;
+  margin-top: 1em;
+  margin-bottom: 0.4em;
+  font-weight: 600;
+}
+.ql-editor p {
+  margin-bottom: 1em;
+  font-size: 1em;
+}
+.ql-editor ol,
+.ql-editor ul {
+  margin-bottom: 1em;
+  padding-left: 1.5em;
+  list-style-position: outside;
+  font-size: 1em;
+}
+.ql-editor pre.ql-syntax {
+  background-color: #23241f;
+  color: #f8f8f2;
+  padding: 10px 15px;
+  border-radius: 6px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.5;
+  font-family: "Consolas", monospace !important;
+  font-size: 0.9em;
+  margin: 1em 0;
+}
+.ql-editor img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 15px 0;
+}

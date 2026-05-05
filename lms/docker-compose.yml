@@ -1,0 +1,24 @@
+﻿services:
+  # Spring Boot Application
+  lms-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lms-springboot
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    networks:
+      - lms-network
+    volumes:
+      - app_logs:/app/logs
+
+networks:
+  lms-network:
+    driver: bridge
+
+volumes:
+  app_logs:
+    driver: local

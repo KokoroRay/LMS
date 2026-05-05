@@ -1,0 +1,22 @@
+<svg width="524" height="140" viewBox="0 0 524 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_651_16605)">
+<rect width="524" height="140" rx="12" fill="#231651"/>
+<circle opacity="0.7" cx="448" cy="154" r="80" stroke="url(#paint0_linear_651_16605)" stroke-width="36"/>
+<circle opacity="0.7" cx="448" cy="154" r="50" stroke="url(#paint1_linear_651_16605)" stroke-width="24"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_651_16605" x1="379.826" y1="19.4783" x2="457.739" y2="185.043" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="0.301533" stop-color="white" stop-opacity="0.5"/>
+<stop offset="0.899925" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint1_linear_651_16605" x1="386" y1="125.876" x2="510" y2="159.753" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="0.301533" stop-color="white" stop-opacity="0.5"/>
+<stop offset="0.899925" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<clipPath id="clip0_651_16605">
+<rect width="524" height="140" rx="12" fill="white"/>
+</clipPath>
+</defs>
+</svg>
