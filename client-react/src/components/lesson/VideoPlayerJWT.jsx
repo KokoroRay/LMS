@@ -23,7 +23,7 @@ const VideoPlayerJWT = ({ lesson }) => {
     try {
       console.log('🔗 Fetching JWT-enabled video from backend...');
       
-      const baseUrl = import.meta.env.VITE_API_BASE || 'https://hocvienit.id.vn';
+      const baseUrl = import.meta.env.VITE_API_BASE || 'http://localhost:8080';
       const response = await fetch(`${baseUrl}/api/v1/lessons/${lesson.lessonId}/video/public-playback`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }

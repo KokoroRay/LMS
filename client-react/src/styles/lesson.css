@@ -158,7 +158,7 @@
   font-weight: 600;
   padding-left: 0;
   font-size: 16px;
-  color: #dd673c;
+  color: var(--color-primary, #4A90E2);
   transition: color 0.2s;
 }
 .course-description-section .toggle-button:hover {
@@ -235,7 +235,7 @@
 .reading-content h2 {
   font-size: 24px;
   margin-bottom: 16px;
-  color: #dd673c;
+  color: var(--color-primary, #4A90E2);
 }
 .reading-content p {
   margin-bottom: 12px;
@@ -399,7 +399,7 @@
   margin-bottom: 20px;
 }
 .seek-modal__primary {
-  background: #dd673c;
+  background: var(--color-primary, #4A90E2);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -507,8 +507,8 @@
 }
 
 .homework-section .ant-btn-primary {
-  background-color: #dd673c;
-  border-color: #dd673c;
+  background-color: var(--color-primary, #4A90E2);
+  border-color: var(--color-primary, #4A90E2);
   font-weight: 500;
   height: 40px;
   border-radius: 6px;
@@ -594,7 +594,7 @@
 
 .submit-modal__title {
   margin: 0;
-  color: #dd673c;
+  color: var(--color-primary, #4A90E2);
 }
 
 .submit-modal__body {
@@ -629,8 +629,8 @@
 .submit-modal__btn-submit {
   height: 44px;
   border-radius: 10px;
-  background: #dd673c;
-  border-color: #dd673c;
+  background: var(--color-primary, #4A90E2);
+  border-color: var(--color-primary, #4A90E2);
   font-size: 16px;
 }
 
@@ -684,8 +684,8 @@
   margin: 8px 0 16px;
 }
 .quiz-intro-card__btn {
-  background: #dd673c;
-  border-color: #dd673c;
+  background: var(--color-primary, #4A90E2);
+  border-color: var(--color-primary, #4A90E2);
   height: 44px;
   border-radius: 10px;
   padding-inline: 20px;
@@ -804,8 +804,8 @@
   border-radius: 8px;
 }
 .quiz-result-card__btn--next {
-  background: #dd673c;
-  border-color: #dd673c;
+  background: var(--color-primary, #4A90E2);
+  border-color: var(--color-primary, #4A90E2);
 }
 .quiz-result-card__btn--next:hover {
   background: #bc4f2a !important;

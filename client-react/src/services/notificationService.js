@@ -128,16 +128,16 @@ class NotificationService {
     }
 
     // Lấy WebSocket URL từ environment hoặc sử dụng default
-    const wsBaseUrl = import.meta.env.VITE_WS_BASE_URL || 'https://hocvienit.id.vn';
-    const wsUrl = `${wsBaseUrl}/ws`;
+    const wsBaseUrl = import.meta.env.VITE_WS_BASE_URL || import.meta.env.VITE_API_BASE || 'http://localhost:8080';
+    const wsUrl = `${wsBaseUrl.replace(/\/$/, '')}/ws`;
     
     // Lấy token từ localStorage để authentication
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('access_token') || localStorage.getItem('token');
     
     console.log('🔌 Đang kết nối WebSocket tới:', wsUrl);
     
     // Tạo kết nối WebSocket đến server với token
-    const socket = new SockJS(wsUrl + (token ? `?token=${token}` : ''));
+    const socket = new SockJS(wsUrl);
     
     // Tạo STOMP client
     this.client = new Client({

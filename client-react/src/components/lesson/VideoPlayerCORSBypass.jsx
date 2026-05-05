@@ -63,7 +63,7 @@ const VideoPlayerCORSBypass = ({ lesson }) => {
       console.log('🔄 Method 1: Backend proxy...');
       
       // Get JWT token from backend first
-      const baseUrl = import.meta.env.VITE_API_BASE || 'https://hocvienit.id.vn';
+      const baseUrl = import.meta.env.VITE_API_BASE || 'http://localhost:8080';
       const backendResponse = await fetch(`${baseUrl}/api/v1/lessons/${lesson.lessonId}/video/public-playback`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
@@ -76,7 +76,7 @@ const VideoPlayerCORSBypass = ({ lesson }) => {
           setProxyUrl(data.streamingUrl);
           
           // Try to use backend as proxy for CloudFront
-          const baseUrl = import.meta.env.VITE_API_BASE || 'https://hocvienit.id.vn';
+          const baseUrl = import.meta.env.VITE_API_BASE || 'http://localhost:8080';
           const proxyResponse = await fetch(`${baseUrl}/api/v1/public/video/proxy?url=${encodeURIComponent(cloudFrontUrl)}`, {
             method: 'GET'
           });
@@ -224,7 +224,7 @@ const VideoPlayerCORSBypass = ({ lesson }) => {
       console.log('🔄 Method 4: Server-side fetch...');
       
       // Try to get backend to fetch CloudFront URL server-side
-      const baseUrl = import.meta.env.VITE_API_BASE || 'https://hocvienit.id.vn';
+      const baseUrl = import.meta.env.VITE_API_BASE || 'http://localhost:8080';
       const response = await fetch(`${baseUrl}/api/v1/public/video/fetch-cloudfront`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

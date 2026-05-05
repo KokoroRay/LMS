@@ -66,7 +66,7 @@ public class AuthServiceImpl implements IAuthService {
         User user = User.builder()
                 .username(formRegister.getUsername())
                 .email(formRegister.getEmail())
-                .passwordHash(passwordEncoder.encode("123456"))
+                .passwordHash(passwordEncoder.encode(formRegister.getPassword()))
                 .firstName(formRegister.getFirstName())
                 .lastName(formRegister.getLastName())
                 .role(studentRole)

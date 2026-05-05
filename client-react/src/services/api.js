@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // 1. Lấy Domain và nối thêm /api/v1
-const DOMAIN = import.meta.env.VITE_API_BASE || 'https://d1ybhieu7adt5b.cloudfront.net';
+const DOMAIN = import.meta.env.VITE_API_BASE || 'http://localhost:8080';
 const CLEAN_DOMAIN = DOMAIN.endsWith('/') ? DOMAIN.slice(0, -1) : DOMAIN;
 const API_BASE_URL = `${CLEAN_DOMAIN}/api/v1`;
 
@@ -16,10 +16,12 @@ const apiClient = axios.create({
   },
 });
 
+const readAuthToken = () => localStorage.getItem('access_token') || localStorage.getItem('token') || '';
+
 // Request Interceptor
 apiClient.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('access_token');
+    const token = readAuthToken();
     if (token) {
       const bearerToken = token.startsWith('Bearer ') ? token : `Bearer ${token}`;
       config.headers.Authorization = bearerToken;

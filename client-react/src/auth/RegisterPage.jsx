@@ -6,7 +6,7 @@ import { Card, Form, Input, Button, Typography, Space, message } from "antd";
 const { Title, Text } = Typography;
 
 // ✅ Use same BaseURL configuration as authService.js
-const DOMAIN = import.meta.env.VITE_API_BASE || 'https://d1ybhieu7adt5b.cloudfront.net';
+const DOMAIN = import.meta.env.VITE_API_BASE || 'http://localhost:8080';
 const CLEAN_DOMAIN = DOMAIN.endsWith('/') ? DOMAIN.slice(0, -1) : DOMAIN;
 const API_BASE_URL = `${CLEAN_DOMAIN}/api/v1`;
 

@@ -61,7 +61,7 @@ export const getVideoPlayback = async (lessonId) => {
 // Backend proxy for video URLs
 export const getBackendProxyVideo = async (lessonId) => {
   try {
-    const baseUrl = import.meta.env.VITE_API_BASE || 'https://hocvienit.id.vn';
+    const baseUrl = import.meta.env.VITE_API_BASE || 'http://localhost:8080';
     const proxyUrl = `${baseUrl}/api/v1/lessons/${lessonId}/video/stream-anonymous`;
     
     const token = localStorage.getItem('token') || localStorage.getItem('access_token');
@@ -138,7 +138,7 @@ const extractCourseId = (lesson, lessonId) => {
 
 // Dynamic CloudFront video URL generation based on backend pattern
 export const getDynamicCloudFrontVideoUrl = async (lessonId) => {
-  const CLOUDFRONT_BASE = 'https://d1ybhieu7adt5b.cloudfront.net';
+  const CLOUDFRONT_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8080';
   
   try {
     // First try to get lesson info to extract courseId
@@ -185,7 +185,7 @@ export const getDynamicCloudFrontVideoUrl = async (lessonId) => {
 
 // Advanced fallback: Try multiple courseId combinations if exact courseId fails
 export const getCloudFrontVideoUrlWithFallbacks = async (lessonId) => {
-  const CLOUDFRONT_BASE = 'https://d1ybhieu7adt5b.cloudfront.net';
+  const CLOUDFRONT_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8080';
   
   // Try primary dynamic URL first
   try {

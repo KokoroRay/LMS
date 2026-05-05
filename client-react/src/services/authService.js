@@ -1,9 +1,11 @@
 import axios from "axios";
 import { checkTokenValidity, clearExpiredToken } from "../utils/tokenUtils";
 
-const DOMAIN = import.meta.env.VITE_API_BASE || 'https://d1ybhieu7adt5b.cloudfront.net';
+const DOMAIN = import.meta.env.VITE_API_BASE || 'http://localhost:8080';
 const CLEAN_DOMAIN = DOMAIN.endsWith('/') ? DOMAIN.slice(0, -1) : DOMAIN;
 const API_BASE_URL = `${CLEAN_DOMAIN}/api/v1`;
+
+const readAuthToken = () => localStorage.getItem("access_token") || localStorage.getItem("token") || "";
 
 console.log('🔌 AuthService Base URL:', API_BASE_URL);
 
@@ -12,7 +14,7 @@ const api = axios.create({
 });
 
 api.interceptors.request.use((cfg) => {
-  const stored = localStorage.getItem("access_token") || "";
+  const stored = readAuthToken();
 
   if (stored) {
     const tokenCheck = checkTokenValidity();

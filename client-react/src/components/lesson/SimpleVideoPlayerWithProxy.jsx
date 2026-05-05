@@ -33,7 +33,7 @@ const SimpleVideoPlayerWithProxy = ({ lesson }) => {
       const originalUrl = `https://d1ybhieu7adt5b.cloudfront.net/vod/hls/${courseId}_${lesson.lessonId}/${videoUuid}.m3u8`;
       
       // Use backend proxy
-      const baseUrl = import.meta.env.VITE_API_BASE || 'https://hocvienit.id.vn';
+      const baseUrl = import.meta.env.VITE_API_BASE || 'http://localhost:8080';
       const proxyUrl = `${baseUrl}/api/v1/public/cloudfront-proxy?url=${encodeURIComponent(originalUrl)}`;
       
       console.log('🌐 Loading video via backend proxy:', proxyUrl);
@@ -67,7 +67,7 @@ const SimpleVideoPlayerWithProxy = ({ lesson }) => {
             console.log('🌐 HLS XHR Setup for:', url);
             // If it's a CloudFront URL, proxy it
             if (url.includes('d1ybhieu7adt5b.cloudfront.net')) {
-              const baseUrl = import.meta.env.VITE_API_BASE || 'https://hocvienit.id.vn';
+              const baseUrl = import.meta.env.VITE_API_BASE || 'http://localhost:8080';
               const proxiedUrl = `${baseUrl}/api/v1/public/cloudfront-proxy?url=${encodeURIComponent(url)}`;
               xhr.open('GET', proxiedUrl, true);
             }

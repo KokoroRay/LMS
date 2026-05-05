@@ -3,18 +3,20 @@ import axios from 'axios';
 
 // Create axios instance with base configuration
 const api = axios.create({
-  baseURL: (import.meta.env.VITE_API_BASE || 'https://hocvienit.id.vn') + '/api/v1',
+  baseURL: (import.meta.env.VITE_API_BASE || 'http://localhost:8080') + '/api/v1',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
+const readAuthToken = () => localStorage.getItem('access_token') || localStorage.getItem('token') || '';
+
 // Request interceptor
 api.interceptors.request.use(
   (config) => {
     // Add auth token if available
-    const token = localStorage.getItem('token');
+    const token = readAuthToken();
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }

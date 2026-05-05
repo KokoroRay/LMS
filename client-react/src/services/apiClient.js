@@ -8,7 +8,9 @@ import axios from 'axios';
  */
 
 // Get API base URL từ .env hoặc sử dụng CloudFront
-const API_BASE_URL = import.meta.env.VITE_API_BASE || 'https://d1ybhieu7adt5b.cloudfront.net/api/v1';
+const API_BASE_URL = import.meta.env.VITE_API_BASE || 'http://localhost:8080/api/v1';
+
+const readAuthToken = () => localStorage.getItem('access_token') || localStorage.getItem('token') || '';
 
 console.log('🔌 API Configuration:');
 console.log('  Base URL:', API_BASE_URL);
@@ -31,7 +33,7 @@ const apiClient = axios.create({
  */
 apiClient.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('access_token');
+    const token = readAuthToken();
     
     // Log request untuk debugging
     console.log(`📤 [${config.method?.toUpperCase()}] ${config.url}`, {

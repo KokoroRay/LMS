@@ -25,7 +25,7 @@ const VideoPlayerWithAuth = ({ lesson }) => {
       console.log('🔗 Fetching video info from backend API for lesson:', lesson.lessonId);
       
       // Call backend public API
-      const baseUrl = import.meta.env.VITE_API_BASE || 'https://hocvienit.id.vn';
+      const baseUrl = import.meta.env.VITE_API_BASE || 'http://localhost:8080';
       const response = await fetch(`${baseUrl}/api/v1/lessons/${lesson.lessonId}/video/public-playback`, {
         method: 'POST',
         headers: {

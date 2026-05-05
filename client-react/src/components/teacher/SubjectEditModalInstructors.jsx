@@ -84,7 +84,8 @@ export default function SubjectEditModalInstructors({ open, initialValues, onCan
       cancelText="Cancel"
       width={700}
       confirmLoading={confirmLoading}
-      destroyOnClose
+      destroyOnHidden
+      forceRender
     >
       <Form form={form} layout="vertical" style={{ marginTop: 16 }}>
         <Form.Item

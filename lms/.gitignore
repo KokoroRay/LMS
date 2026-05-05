@@ -55,3 +55,9 @@ backups/
 ### Documentation ###
 DOCKER-AZURE-SETUP.md
 README-Docker.md
+
+
+# Claw Code files
+.claw/
+.clawd-todos.json
+.claw.json

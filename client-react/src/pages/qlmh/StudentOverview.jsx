@@ -199,7 +199,7 @@ export default function StudentOverview() {
         <Row gutter={[16, 16]}>
           <Col xs={24} md={12}>
             <Card
-              bordered={false}
+              variant="borderless"
               style={{
                 borderRadius: 16,
                 background: "linear-gradient(120deg, #1F1C3A, #3B3175)",
@@ -208,7 +208,7 @@ export default function StudentOverview() {
                 overflow: "hidden",
                 minHeight: 140,
               }}
-              bodyStyle={{ padding: 18 }}
+              styles={{ body: { padding: 18 } }}
             >
               <Row justify="space-between" align="middle">
                 <Text
@@ -267,7 +267,7 @@ export default function StudentOverview() {
           </Col>
           <Col xs={24} md={12}>
             <Card
-              bordered={false}
+              variant="borderless"
               style={{
                 borderRadius: 16,
                 background: "linear-gradient(120deg, #7F1D1D, #B91C1C)",
@@ -276,7 +276,7 @@ export default function StudentOverview() {
                 overflow: "hidden",
                 minHeight: 140,
               }}
-              bodyStyle={{ padding: 18 }}
+              styles={{ body: { padding: 18 } }}
             >
               <Row justify="space-between" align="middle">
                 <Text
@@ -338,8 +338,8 @@ export default function StudentOverview() {
 
         <Card
           style={{ marginTop: 16, borderRadius: 16 }}
-          bodyStyle={{ padding: 16 }}
-          bordered={false}
+          styles={{ body: { padding: 16 } }}
+          variant="borderless"
         >
           <Row justify="space-between" align="middle" style={{ marginBottom: 8 }}>
             <Space>
@@ -383,9 +383,9 @@ export default function StudentOverview() {
             </Col>
             <Col xs={24} lg={16}>
               <Card
-                bordered={false}
+                variant="borderless"
                 style={{ borderRadius: 16, height: '100%' }}
-                bodyStyle={{ padding: 16 }}
+                styles={{ body: { padding: 16 } }}
               >
                 <Title level={5}>Môn học đã đăng ký</Title>
                 {enrolledCourses.length > 0 ? (

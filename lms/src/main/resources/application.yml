@@ -2,9 +2,9 @@ spring:
   application:
     name: base_spring_boot
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://lms-mysql-rds.c3s0g0sm4aop.ap-southeast-1.rds.amazonaws.com:3306/lms-rds?useSSL=true&requireSSL=true&serverTimezone=Asia/Ho_Chi_Minh&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=CONVERT_TO_NULL}
-    username: ${SPRING_DATASOURCE_USERNAME:admin}
-    password: ${SPRING_DATASOURCE_PASSWORD}
+    url: ${SPRING_DATASOURCE_URL:}
+    username: ${SPRING_DATASOURCE_USERNAME:}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
     hikari:
       maximum-pool-size: ${SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE:20}
       minimum-idle: ${SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE:5}
@@ -25,14 +25,14 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:update}
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:none}
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
     properties:
       hibernate:
         format_sql: true
-        show_sql: ${SPRING_JPA_SHOW_SQL:false}
+        show_sql: ${SPRING_JPA_SHOW_SQL:true}
         dialect: org.hibernate.dialect.MySQLDialect
 
   servlet:
@@ -45,34 +45,37 @@ spring:
 
 server:
   port: ${PORT:8080}
+  servlet:
+    context-path: /api/v1
 
 jwt:
   secret:
-    key: ${JWT_SECRET_KEY}
+    key: ${JWT_SECRET_KEY:}
   expired:
     access: ${JWT_EXPIRED_ACCESS:3600000}
   expiration: ${JWT_EXPIRATION:3600000}
   issuer: ${JWT_ISSUER:lms-api}
 
 cloudinary:
-  cloud_name: ${CLOUDINARY_CLOUD_NAME}
-  api_key: ${CLOUDINARY_API_KEY}
-  api_secret: ${CLOUDINARY_API_SECRET}
+  cloud_name: ${CLOUDINARY_CLOUD_NAME:}
+  api_key: ${CLOUDINARY_API_KEY:}
+  api_secret: ${CLOUDINARY_API_SECRET:}
   secure: ${CLOUDINARY_SECURE:true}
 
 vnpay:
-  tmnCode: ${VNPAY_TMN_CODE}
-  hashSecret: ${VNPAY_HASH_SECRET}
+  tmnCode: ${VNPAY_TMN_CODE:}
+  hashSecret: ${VNPAY_HASH_SECRET:}
   paymentUrl: ${VNPAY_PAYMENT_URL:https://sandbox.vnpayment.vn/paymentv2/vpcpay.html}
   returnUrl: ${VNPAY_RETURN_URL:https://api.hocvienit.id.vn/api/v1/payments/callback-reenroll}
   ipnUrl: ${VNPAY_IPN_URL:https://api.hocvienit.id.vn/api/v1/payments/vnpay-ipn}
 
 frontend:
-  url: ${FRONTEND_URL:https://hocvienit.id.vn}
+  url: ${FRONTEND_URL:http://localhost:5173}
 
 logging:
   level:
     com.ra.base_spring_boot.security: DEBUG
+    org.springframework.security: DEBUG
     root: INFO
 
 management:

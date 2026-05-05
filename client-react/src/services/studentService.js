@@ -1,8 +1,13 @@
-// src/services/studentService.js
 import axios from "axios";
 
+const API_DOMAIN = import.meta.env.VITE_API_BASE || 'http://localhost:8080';
+const CLEAN_DOMAIN = API_DOMAIN.endsWith('/') ? API_DOMAIN.slice(0, -1) : API_DOMAIN;
+const API_BASE_URL = `${CLEAN_DOMAIN}/api/v1`;
+
+console.log('🔌 StudentService Base URL:', API_BASE_URL);
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE || "/api/v1",
+  baseURL: API_BASE_URL,
 });
 
 api.interceptors.request.use((cfg) => {
@@ -62,8 +67,8 @@ const normalizeStudentItem = (s) => {
     "";
 
   return {
-    userId: id,              
-    id,                     
+    userId: id,             
+    id,                    
     studentCode: s?.studentCode ?? user?.studentCode ?? s?.code ?? "",
     fullName,
     email: s?.email ?? user?.email ?? "",

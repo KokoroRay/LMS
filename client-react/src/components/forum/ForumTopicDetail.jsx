@@ -207,7 +207,7 @@ const ForumTopicDetail = () => {
     if (!topicId) return;
 
     const client = new Client({
-      webSocketFactory: () => new SockJS(`${import.meta.env.VITE_WS_BASE_URL || 'https://hocvienit.id.vn'}/ws`),
+      webSocketFactory: () => new SockJS(`${import.meta.env.VITE_WS_BASE_URL || 'http://localhost:8080'}/ws`),
       reconnectDelay: 5000,
       onConnect: () => {
 

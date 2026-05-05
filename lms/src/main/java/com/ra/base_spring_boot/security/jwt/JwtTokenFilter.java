@@ -62,7 +62,9 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 
                     // Custom authorization logic: First login check
                     boolean isFirstLogin = Boolean.TRUE.equals(user.getFirstLogin());
-                    boolean isAuthEndpoint = requestURI.startsWith("/auth");
+                    // Use servlet path (path within the context) so checks work with server.servlet.context-path
+                    String servletPath = request.getServletPath();
+                    boolean isAuthEndpoint = servletPath != null && servletPath.startsWith("/auth");
 
                     if (isFirstLogin && !isAuthEndpoint) {
                         response.setStatus(HttpServletResponse.SC_FORBIDDEN);

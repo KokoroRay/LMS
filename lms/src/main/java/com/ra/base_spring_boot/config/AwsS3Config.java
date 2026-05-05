@@ -59,12 +59,21 @@ public class AwsS3Config {
     @Bean
     public S3Client s3Client() {
         try {
-            var builder = S3Client.builder()
-                    .region(Region.of(region))
-                    .endpointOverride(resolvedEndpoint())
-                    .serviceConfiguration(S3Configuration.builder()
-                            .pathStyleAccessEnabled(true)
-                            .build());
+            var builder = S3Client.builder().region(Region.of(region));
+
+            URI resolved = null;
+            try {
+                resolved = resolvedEndpoint();
+            } catch (IllegalStateException ex) {
+                log.warn("R2 not configured (r2.endpoint or r2.account-id missing). Using default S3 client configuration");
+            }
+
+            if (resolved != null) {
+                builder.endpointOverride(resolved)
+                        .serviceConfiguration(S3Configuration.builder()
+                                .pathStyleAccessEnabled(true)
+                                .build());
+            }
 
             StaticCredentialsProvider credentials = credentialsProvider();
             if (credentials != null) {
@@ -84,12 +93,21 @@ public class AwsS3Config {
     @Bean
     public S3Presigner s3Presigner() {
         try {
-            var builder = S3Presigner.builder()
-                    .region(Region.of(region))
-                    .endpointOverride(resolvedEndpoint())
-                    .serviceConfiguration(S3Configuration.builder()
-                            .pathStyleAccessEnabled(true)
-                            .build());
+            var builder = S3Presigner.builder().region(Region.of(region));
+
+            URI resolved = null;
+            try {
+                resolved = resolvedEndpoint();
+            } catch (IllegalStateException ex) {
+                log.warn("R2 not configured (r2.endpoint or r2.account-id missing). Using default S3 presigner configuration");
+            }
+
+            if (resolved != null) {
+                builder.endpointOverride(resolved)
+                        .serviceConfiguration(S3Configuration.builder()
+                                .pathStyleAccessEnabled(true)
+                                .build());
+            }
 
             StaticCredentialsProvider credentials = credentialsProvider();
             if (credentials != null) {
