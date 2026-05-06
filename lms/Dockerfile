@@ -42,11 +42,7 @@ ENV PATH="$PATH:/opt/java-runtime/bin"
 # Copy file Jar và đổi tên thành app.jar cho thống nhất
 COPY --from=build /app/build/libs/*.jar app.jar
 
-# [Native Health Check]: Không dùng curl vì Distroless không có Shell [cite: 701, 818]
-HEALTHCHECK --interval=30s --timeout=3s --start-period=60s --retries=3 \
-  CMD ["java", "-cp", "app.jar", "org.springframework.boot.loader.JarLauncher", "--health"]
-
 USER nobody
 
 # Dạng mảng (Exec Form) đảm bảo PID 1 và Graceful Shutdown [cite: 654, 761]
-ENTRYPOINT ["java", "-Dspring.profiles.active=prod", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-Xmx256m", "-Xms128m", "-Dspring.profiles.active=prod", "-jar", "app.jar"]
