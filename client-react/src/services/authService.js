@@ -14,17 +14,25 @@ const api = axios.create({
 });
 
 api.interceptors.request.use((cfg) => {
-  const stored = readAuthToken();
+  // Skip token injection for login endpoint
+  const isLoginRequest = cfg.url === '/auth/login' || cfg.url?.includes('/auth/login');
+  const isForgotPasswordRequest = cfg.url?.includes('/auth/forgot-password');
+  const isResetPasswordRequest = cfg.url?.includes('/auth/reset-password');
+  const isRegisterRequest = cfg.url?.includes('/auth/register');
+  
+  if (!isLoginRequest && !isForgotPasswordRequest && !isResetPasswordRequest && !isRegisterRequest) {
+    const stored = readAuthToken();
 
-  if (stored) {
-    const tokenCheck = checkTokenValidity();
-    if (!tokenCheck.valid && tokenCheck.expired) {
-      clearExpiredToken();
-      return Promise.reject(new Error("Token expired"));
+    if (stored) {
+      const tokenCheck = checkTokenValidity();
+      if (!tokenCheck.valid && tokenCheck.expired) {
+        clearExpiredToken();
+        return Promise.reject(new Error("Token expired"));
+      }
+      const token = stored.startsWith("Bearer ") ? stored.slice(7) : stored;
+      cfg.headers = cfg.headers || {};
+      cfg.headers.Authorization = `Bearer ${token}`;
     }
-    const token = stored.startsWith("Bearer ") ? stored.slice(7) : stored;
-    cfg.headers = cfg.headers || {};
-    cfg.headers.Authorization = `Bearer ${token}`;
   }
 
   if (cfg.data instanceof FormData) {
