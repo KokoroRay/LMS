@@ -2,8 +2,8 @@ spring:
   application:
     name: base_spring_boot
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://lms-mysql-rds.c3s0g0sm4aop.ap-southeast-1.rds.amazonaws.com:3306/lms-rds?useSSL=true&requireSSL=true&serverTimezone=Asia/Ho_Chi_Minh&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=CONVERT_TO_NULL}
-    username: ${SPRING_DATASOURCE_USERNAME:admin}
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
     password: ${SPRING_DATASOURCE_PASSWORD}
     hikari:
       maximum-pool-size: ${SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE:20}
@@ -11,11 +11,7 @@ spring:
       connection-timeout: ${SPRING_DATASOURCE_HIKARI_CONNECTION_TIMEOUT:30000}
       idle-timeout: ${SPRING_DATASOURCE_HIKARI_IDLE_TIMEOUT:300000}
 
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: ${MAIL_USERNAME}
-    password: ${MAIL_PASSWORD}
+  mail:\n    host: ${MAIL_HOST:smtp.gmail.com}\n    port: ${MAIL_PORT:587}\n    username: ${MAIL_USERNAME}\n    password: ${MAIL_PASSWORD}
     properties:
       mail:
         smtp:
@@ -65,9 +61,9 @@ cloudinary:
 vnpay:
   tmnCode: ${VNPAY_TMN_CODE}
   hashSecret: ${VNPAY_HASH_SECRET}
-  paymentUrl: ${VNPAY_PAYMENT_URL:https://sandbox.vnpayment.vn/paymentv2/vpcpay.html}
-  returnUrl: ${VNPAY_RETURN_URL:https://api.hocvienit.id.vn/api/v1/payments/callback-reenroll}
-  ipnUrl: ${VNPAY_IPN_URL:https://api.hocvienit.id.vn/api/v1/payments/vnpay-ipn}
+  paymentUrl: ${VNPAY_PAYMENT_URL}
+  returnUrl: ${VNPAY_RETURN_URL}
+  ipnUrl: ${VNPAY_IPN_URL}
 
 frontend:
   url: ${FRONTEND_URL:https://hocvienit.id.vn}
@@ -88,18 +84,18 @@ management:
       show-details: always
 
 cors:
-  allowed-origins: http://localhost:5173,http://localhost:5174,http://localhost:3000,https://api.lms-project.com,https://api.hocvienit.id.vn,https://d-gxvncujeka.execute-api.ap-southeast-1.amazonaws.com,https://hocvienit.id.vn,https://www.hocvienit.id.vn
+  allowed-origins: ${CORS_ALLOWED_ORIGINS}
   allowed-methods: ${CORS_ALLOWED_METHODS:GET,POST,PUT,PATCH,DELETE,OPTIONS}
   allowed-headers: ${CORS_ALLOWED_HEADERS:*}
   allow-credentials: ${CORS_ALLOW_CREDENTIALS:true}
 
 r2:
-  region: ${R2_REGION:auto}
-  account-id: ${R2_ACCOUNT_ID:}
-  endpoint: ${R2_ENDPOINT:}
-  bucket-name: ${R2_BUCKET_NAME:lms-video}
-  upload-folder: ${R2_UPLOAD_FOLDER:uploads/}
-  public-base-url: ${R2_PUBLIC_BASE_URL:}
+  region: ${R2_REGION}
+  account-id: ${R2_ACCOUNT_ID}
+  endpoint: ${R2_ENDPOINT}
+  bucket-name: ${R2_BUCKET_NAME}
+  upload-folder: ${R2_UPLOAD_FOLDER}
+  public-base-url: ${R2_PUBLIC_BASE_URL}
   credentials:
-    access-key: ${R2_ACCESS_KEY_ID:}
-    secret-key: ${R2_SECRET_ACCESS_KEY:}
+    access-key: ${R2_ACCESS_KEY_ID}
+    secret-key: ${R2_SECRET_ACCESS_KEY}

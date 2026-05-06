@@ -1,15 +1,16 @@
 ﻿services:
-  # Spring Boot Application
   lms-app:
     build:
       context: .
       dockerfile: Dockerfile
+      # ĐÃ XÓA target: build để lấy image Stage 2 
     container_name: lms-springboot
     restart: unless-stopped
     env_file:
       - .env
     ports:
       - "8080:8080"
+    # KHÔNG dùng command dạng text thuần để tránh lỗi /bin/sh: not found [cite: 10, 87, 108, 166]
     networks:
       - lms-network
     volumes:
