@@ -14,15 +14,15 @@ export default defineConfig({
   server: {
     proxy: {
       "/ws": {
-        target: "http://localhost:8080",
+        target: process.env.VITE_WS_BASE_URL || "http://localhost:8080",
         changeOrigin: true,
         ws: true,
       },
       "/api": {
-        // Trỏ về domain gốc
-        target: "https://api.hocvienit.id.vn",
+        // Proxy tự động theo VITE_API_BASE từ .env
+        target: process.env.VITE_API_BASE || "http://localhost:8080",
         changeOrigin: true,
-        secure: true,
+        secure: false,
         ws: true,
       },
     },
