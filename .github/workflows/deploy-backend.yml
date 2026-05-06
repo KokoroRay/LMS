@@ -46,6 +46,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }} 
+          script: |
             set -e
             mkdir -p /home/user/app/lms
             cd /home/user/app/lms
@@ -54,6 +55,7 @@ jobs:
             
             docker network create lms-network >/dev/null 2>&1 || true
             docker volume create app_logs >/dev/null 2>&1 || true
+            
             docker stop lms-springboot >/dev/null 2>&1 || true
             docker rm lms-springboot >/dev/null 2>&1 || true
             
